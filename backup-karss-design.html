@@ -1,0 +1,751 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!--
+	  _                                       
+	 /  )  _      _|_  _             o  _,  |\ 
+	|     |/ /|/|  |  |/ /|/|  /|/|  | / |  |/ 
+	 \___/|_/ | |_/|_/|_/ | |_/ | |_/|/\/|_/|_/
+
+	Centennial, a classic theme with book-inspired elements for Tumblr. Version 1.5.
+	http://eachandevery.info/
+	
+-->
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	
+	<title>{Title}{block:SearchPage}, Search results for: {SearchQuery}{/block:SearchPage}{block:PostSummary}, {PostSummary}{/block:PostSummary}</title>
+	{block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+	<link rel="shortcut icon" href="{Favicon}" />
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
+	
+	<!-- theme customization data -->
+	<meta name="text:Disqus Shortname" content="" />
+	<meta name="color:Link" content="#000">
+	<meta name="color:Link hover" content="#74bfe5">
+	<meta name="if:Page links on top" content="0"/>
+
+	<!-- stylesheets -->
+	<link rel="stylesheet" type="text/css" media="all"  href="http://static.tumblr.com/od9rmlx/8vzl2oidp/framework.css" />
+	<style type="text/css">
+	.page {
+		margin-top: 50px; 
+		width: 720px;}	
+		
+	body {
+		color: #666;
+		font-family: goudy old style, minion pro, bell mt, serif; 
+		font-size: 18px; 
+		line-height: 24px;}
+		
+	.body {
+		padding-top: 60px;
+		background: url("http://static.tumblr.com/od9rmlx/KFul2q60b/body-ornament.png") no-repeat center top;}	
+		
+	/* <------- default... -------> */
+		/* <------- ...spacing -------> */
+		.header {padding-bottom: 60px;}
+		h3, h4, h5, h6, ul, ol, dl, p, blockquote, table, img {padding:20px; padding-top: 0px;}
+		h1, h2, h3, h4, h5, h6 {padding-bottom: 0px;}
+		pre {margin: 10px;}
+		
+		/* <------- ...headers -------> */
+		h1 {font-size: 50px; color:#000; letter-spacing: 7px; padding-bottom: 10px; line-height: 50px; text-align: center;}
+		h1 a{color: #000; text-decoration: none; background: none;}
+		h1 a:hover {color:#555}
+		h2 {font-size: 13px;  font-weight: normal; text-transform: uppercase; letter-spacing: 0.2em; text-align: center;}
+		h3 {font-size: 16px;  font-weight: bold; padding-bottom: 0px; font-style: normal; text-transform: uppercase; color: #000;}
+		h3.inline {padding-right: 10px; float: left; padding-bottom: 0px;}
+		h4 {color: #999; font-size: 14px; font-weight: normal; padding-bottom: 20px; text-transform: uppercase;}
+		h5 {font-size:108%; font-weight:bold; font-style: normal; color:#AE0345;}
+		h6 {font-size:108%; font-weight:normal;  font-style: italic; color:#333;}
+		
+		/* <------- ...links -------> */
+		a {color: {color:Link}; text-decoration: none; background: url("http://static.tumblr.com/od9rmlx/eCel2oiel/dot.png") repeat-x center bottom; padding-bottom: 5px;}
+		a:focus, a:hover, .searchBox:hover {color: {color:Link hover}; text-decoration: none;}
+		img {display:block;}
+		
+		/* <------- ...lists -------> */
+		ol li{list-style-type: decimal; margin-left:60px;}
+		ul li{list-style-type:disc; margin-left:60px;}
+		.simpleList li{list-style-type:none; margin-left: 0px;}
+		.horizontalList li {display: inline; list-style-type: none; margin: 0px;}
+		
+		/* <------- ...blockquotes -------> */
+		blockquote {padding-left: 40px; padding-right: 40px; padding-bottom: 0px; color: #848f90; }
+		cite{display:block; text-align:right; padding-top: 10px;}
+	
+		/* <------- ...formatting -------> */
+		em {font-style: italic;}
+		strong {font-weight:bold; color: #000;}
+		code {color:#0B8C8F;}
+		
+		/* <------- *special formatting cases -------> */
+		.italic {font-style: italic; font-family: garamond, 'adobe garamond pro', baskerville, georgia, serif; font-size: 16px; text-transform: lowercase; font-weight: normal;}
+		a span.underline {background: url("http://static.tumblr.com/od9rmlx/eCel2oiel/dot.png") repeat-x center bottom; padding-bottom: 5px;}
+		a span.underline:focus, a span.underline:hover {color: {color:Link hover};}	
+		.video .caption, .photoset .caption {width: 540px; margin: 0px auto;}
+	
+	/* <------- posts in general -------> */
+	.post {
+		padding-bottom: 80px;}
+	.content {width: 720px;}
+	.content p, .content img {
+		padding-left: 20px; 
+		padding-right: 20px;}
+	.content img {
+		max-width: 680px;
+		padding-top: 10px;}
+	.mediaWrap {padding: 10px; width: 500px; margin: 0px auto;}
+	
+	
+	/* <------- answers -------> */
+	.answer .question {
+		padding-bottom: 10px; 
+		margin-left: 20px; margin-right: 20px;
+		text-indent: 0px;}
+	.question .italic {color: #999}
+	blockquote.question {
+		padding-top: 10px;}
+	
+	
+	/* <------- audio -------> */
+	.audio .player {
+		width: 256px; 
+		height: 58px;
+		padding-top: 15px;
+		padding-left: 50px;
+		margin-top: 10px;
+		margin-left: -20px;
+		background: url("http://static.tumblr.com/od9rmlx/w7Wl2qfw8/audio-player-frame.png") no-repeat;
+		}
+	.audio .albumArt img {
+		width: 500px; 
+		background-color: #fff; 
+		min-height: 450px;}
+	.audio .caption {
+		padding-top: 9px;}
+	.audio .noAlbumArt {
+		padding-top: 30px;}
+	.downloadLink {
+		font-size: 16px; 
+		font-weight: bold;}
+	.audio .metaData {margin-top: 0px;}	
+	
+	
+	/* <------- conversations -------> */
+	.chat .transcript {
+		border-collapse: separate; 
+		padding: 0px; 
+		padding-bottom: 20px; 
+		width: 100%; 
+		margin-left: 20px; 
+		margin-right: 20px;}
+	.chat .transcript .user {vertical-align: top;}
+	.chat .transcript .odd {color: #000;}
+	.chat .transcript .odd .user {font-weight: bold;}
+	
+	
+	/* <------- links -------> */
+	.bigLink {
+		font-size: 30px; 
+		text-decoration: none; 
+		padding-bottom: 10px; 
+		line-height: 42px;}
+	.bigLink a {background: none;}
+	.bigLink img.pointer {
+		display: inline; 
+		vertical-align: text-bottom; 
+		padding: 0px; 
+		padding-bottom: 7px; 
+		padding-left: 0px;}
+	
+	
+	/* <------- quotes -------> */
+	.quote .content p, .question {font-size: 24px; color: #000; line-height: 32px;}
+	.quote .content p {padding-bottom: 5px;}
+	.quote .content p.source {line-height: 24px; font-size: 18px; color: #666;}
+	
+	
+	/* <------- text -------> */
+	h3.inline + p img {display: inline;}
+	
+	
+	/* <------- notes -------> */
+	.notes ol {padding: 0px; font-size: 14px;}
+	.notes ol li {list-style-type: decimal; padding: 5px 0px; margin-left: 0px;}
+	.notes ol li img {display: none;}
+	.notes blockquote {font-size: 14px; padding: 0px;}	
+	.notesWrap {
+		margin: 0px 20px;
+		margin-top: 50px;
+		background: url("http://static.tumblr.com/od9rmlx/QpJl2oqlb/note-ornament.png") no-repeat;
+		padding: 20px;}
+		
+	/* <------- footer -------> */
+	.postNav {
+		margin-bottom: 70px; 
+		padding-top: 10px; 
+		background: url("http://static.tumblr.com/od9rmlx/4hWl2oifa/decorated-rule.png") no-repeat center top;}
+		
+	.postNav .pageNum {
+		width: 500px; 
+		text-align: center;}
+		
+	.previous, .next {width: 110px;}
+	
+	.next {text-align: right;}
+	
+	.previous a, .next a, .pageLinks a {
+		font-size: 12px; 
+		font-weight: bold; 
+		text-transform: uppercase;}
+	
+	.pageLinks {
+		background: url("http://static.tumblr.com/od9rmlx/3Wgl2oigf/ornament.png") no-repeat center top; 
+		padding-top: 90px; 
+		text-align: center;}
+		
+	.pageLinks a {margin: 0px 10px;}
+	
+	.pageLinksTop {
+		background: none; padding-top: 40px; margin-bottom: -60px;}
+		
+	/*etc*/
+	.metaData {
+		text-align: center; 
+		padding: 7px 20px;
+		margin-top: -10px; 
+		font-size: 11px; 
+		color: #999; 
+		line-height: 16px; 
+		text-transform: uppercase;}
+		
+	.tags {text-align: right;}
+		
+	.pageNum {font-size: 14px;}
+	
+	.metaNav {
+		margin-bottom: 50px; 
+		padding-bottom: 10px; 
+		background: url("http://static.tumblr.com/od9rmlx/4hWl2oifa/decorated-rule.png") no-repeat center bottom;}
+		
+	#disqus_thread {
+		padding: 60px 20px 20px;}	
+		
+	#disqus_thread h3{
+		padding-left: 0px;
+		padding-top: 40px;}		
+	
+	/*search*/
+	.search {text-align: right;}
+	.searchBox {border: 1px solid white; font-size: 12px; color: {color:Link}; font-family: goudy old style, minion pro, bell mt, serif; text-align: right; position: relative; top: 5px;}
+	.searchBox:hover {cursor: pointer}
+	.searchBox:focus {border: 1px solid #000;}
+	
+	/*credit*/
+	.credit {font-size: 14px; padding-top: 0px; margin-top: -10px; padding-bottom: 50px;}
+	.credit a {font-size: 14px; text-transform: none; font-weight: normal; margin: 0px; }
+	
+	{CustomCSS}
+	</style>
+	
+	<!-- scripts -->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> 
+	<script type="text/javascript"> 
+		$(document).ready(function() {
+			$(".searchBox").focus(function(){
+				if($(this).val() == "SEARCH"){$(this).val("")}
+			})
+			$(".searchBox").blur(function(){
+				if($(this).val() == ""){$(this).val("SEARCH")}
+			})
+		});
+	</script> 
+</head>
+
+<body>
+<div class="page">
+	<div class="metaNav line">
+		{block:IndexPage}<div class="unit pageNum">Nº. {CurrentPage} <span class="italic">of</span>&nbsp; {TotalPages} </div>{/block:IndexPage}
+		
+		<!--searchBox-->
+		<div class="unit search lastUnit">
+			<form action="/search" method="get">
+			    <input type="text" name="q" value="SEARCH" class="searchBox" />
+			</form>
+		</div><!--/searchBox-->
+	</div><!--/metaNav-->
+	
+	<div class="header">
+		<h1><a href="/">{Title}</a></h1>
+		{block:Description}<h2>{Description}</h2>{/block:Description}
+		{block:IfPageLinksOnTop}
+			<div class="pageLinks pageLinksTop">
+				<p>
+					{block:HasPages}
+						{block:Pages}<a href="{URL}">{Label}</a>{/block:Pages}
+					{/block:HasPages}
+					
+					{block:AskEnabled}
+						<a href="/ask">Ask <span class="italic">a</span> Question</a>
+					{/block:AskEnabled} 
+					
+					{block:SubmissionsEnabled} 
+						<a href="/submit">{SubmitLabel}</a>
+					{/block:SubmissionsEnabled}  
+					
+					<a href="/archive">Archive</a>
+					<a href="{RSS}">RSS</a>
+					<a href="/mobile">Mobile</a>
+				</p>
+			</div><!--/pageLinks-->
+		{/block:IfPageLinksOnTop}
+	</div>
+	
+	<div class="body">
+		{block:SearchPage}
+			<h4>{SearchResultCount} result(s) for <strong>{SearchQuery}</strong>:</h4>
+					
+			{block:NoSearchResults}
+				<p>Sorry, no results were found.</p>
+			{/block:NoSearchResults}
+		{/block:SearchPage}
+		
+		{block:TagPage}
+			<h4>Posts tagged <strong>{Tag}</strong>:</h4>
+		{/block:TagPage}
+		
+		{block:Posts}
+		{block:Answer} 
+		<!--answer-->
+		<div class="post answer">
+			<div class="metaData line">
+				<div class="unit dateAndNotes">
+					{block:Date}<a href="{Permalink}">{Month} {DayOfMonth}, {Year}</a>{/block:Date} 
+					{block:NoteCount}<span class="italic">with</span> <a href="{Permalink}">{NoteCountWithLabel}</a>{/block:NoteCount}
+				</div>
+				
+				<div class="unit lastUnit tags">
+					{block:HasTags}&nbsp; &nbsp; &nbsp; &nbsp; 
+				<span class="italic">tags:</span> {block:Tags}<a href="{TagURL}">{Tag}</a>. {/block:Tags}
+					{/block:HasTags}
+				</div>
+			</div><!--/metaData-->
+			
+			<div class="content">
+				<div class="question">{Question} <span class="italic">asked by {Asker}</span></div>
+				{Answer}
+			</div>
+			
+			{block:PostNotes}
+			<div class="notesWrap"><div class="notes">{PostNotes}</div></div>	
+			{/block:PostNotes}
+			
+			{block:PermalinkPage}
+				<!--{block:IfDisqusShortname}
+					{block:Permalink}
+					<div id="disqus_thread"></div>
+					<script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+					<noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">View the discussion thread.</a></noscript>
+					{/block:Permalink}
+				{/block:IfDisqusShortname}-->
+			{/block:PermalinkPage} 
+		</div>
+		<!--/answer-->
+		{/block:Answer}
+		
+		
+		{block:Audio}
+		<!--audio-->
+		<div class="post audio">
+			<div class="metaData line">
+				<div class="unit dateAndNotes">
+					{block:Date}<a href="{Permalink}">{Month} {DayOfMonth}, {Year}</a>{/block:Date} 
+					{block:NoteCount}<span class="italic">with</span> <a href="{Permalink}">{NoteCountWithLabel}</a>{/block:NoteCount}
+				</div>
+				
+				<div class="unit lastUnit tags">
+					{block:HasTags}&nbsp; &nbsp; &nbsp; &nbsp; 
+				<span class="italic">tags:</span> {block:Tags}<a href="{TagURL}">{Tag}</a>. {/block:Tags}
+					{/block:HasTags}
+				</div>
+			</div><!--/metaData-->
+			
+			<div class="content">
+				<div class="line">
+					<div class="unit audioPlayer">
+						<div class="player">
+							{AudioPlayerBlack}
+						</div>
+					</div>
+					
+					<div class="caption unit lastUnit">
+					{block:Caption}
+						{Caption}
+						{block:ExternalAudio}<p class="downloadLink"><a href="{ExternalAudioURL}">download</a> &darr; </p>{/block:ExternalAudio}
+					{/block:Caption}
+					</div>
+				</div>
+			</div>
+			
+			{block:PostNotes}
+			<div class="notesWrap"><div class="notes">{PostNotes}</div></div>	
+			{/block:PostNotes}
+			
+			{block:PermalinkPage}
+				<!--{block:IfDisqusShortname}
+					{block:Permalink}
+					<div id="disqus_thread"></div>
+					<script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+					<noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">View the discussion thread.</a></noscript>
+					{/block:Permalink}
+				{/block:IfDisqusShortname}-->
+			{/block:PermalinkPage} 
+		</div>
+		<!--/audio-->
+		{/block:Audio}
+		
+		
+		{block:Chat} 
+		<!--chat-->
+		<div class="post chat">
+			<div class="metaData line">
+				<div class="unit dateAndNotes">
+					{block:Date}<a href="{Permalink}">{Month} {DayOfMonth}, {Year}</a>{/block:Date} 
+					{block:NoteCount}<span class="italic">with</span> <a href="{Permalink}">{NoteCountWithLabel}</a>{/block:NoteCount}
+				</div>
+				
+				<div class="unit lastUnit tags">
+					{block:HasTags}&nbsp; &nbsp; &nbsp; &nbsp; 
+				<span class="italic">tags:</span> {block:Tags}<a href="{TagURL}">{Tag}</a>. {/block:Tags}
+					{/block:HasTags}
+				</div>
+			</div><!--/metaData-->
+			
+			<div class="content">
+			{block:Title}<h3>{Title}</h3>{/block:Title}
+				<table class="transcript">
+					{block:Lines}
+					<tr class="{Alt}">
+					{block:Label}<td class="user">{Label}</td>{/block:Label}
+					<td>{Line}</td>
+					</tr>
+					{/block:Lines}
+				</table>
+			</div>
+			
+			{block:PostNotes}
+			<div class="notesWrap"><div class="notes">{PostNotes}</div></div>	
+			{/block:PostNotes}
+			
+			{block:PermalinkPage}
+				<!--{block:IfDisqusShortname}
+					{block:Permalink}
+					<div id="disqus_thread"></div>
+					<script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+					<noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">View the discussion thread.</a></noscript>
+					{/block:Permalink}
+				{/block:IfDisqusShortname}-->
+			{/block:PermalinkPage} 
+		</div>
+		<!--/chat-->
+		{/block:Chat} 
+		
+		
+		{block:Link}
+		<!--link-->
+		<div class="post link">
+			<div class="content">
+			<div class="metaData line">
+				<div class="unit dateAndNotes">
+					{block:Date}<a href="{Permalink}">{Month} {DayOfMonth}, {Year}</a>{/block:Date} 
+					{block:NoteCount}<span class="italic">with</span> <a href="{Permalink}">{NoteCountWithLabel}</a>{/block:NoteCount}
+				</div>
+				
+				<div class="unit lastUnit tags">
+					{block:HasTags}&nbsp; &nbsp; &nbsp; &nbsp; 
+				<span class="italic">tags:</span> {block:Tags}<a href="{TagURL}">{Tag}</a>. {/block:Tags}
+					{/block:HasTags}
+				</div>
+			</div><!--/metaData-->
+			
+			<p class="bigLink"><a href="{URL}" {Target}><span class="underline">{Name}</span> <img src="http://static.tumblr.com/od9rmlx/ATql2oiuu/pointer.png" class="pointer" alt=""></a></p>
+			{block:Description}{Description}{/block:Description}
+			</div>
+			
+			{block:PostNotes}
+			<div class="notesWrap"><div class="notes">{PostNotes}</div></div>	
+			{/block:PostNotes}
+			
+			{block:PermalinkPage}
+				<!--{block:IfDisqusShortname}
+					{block:Permalink}
+					<div id="disqus_thread"></div>
+					<script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+					<noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">View the discussion thread.</a></noscript>
+					{/block:Permalink}
+				{/block:IfDisqusShortname}-->
+			{/block:PermalinkPage}  
+		</div>
+		<!--/link-->
+		{/block:Link}
+		
+		
+		{block:Photo}
+		<!--photo-->
+		<div class="post photo">
+			<div class="metaData line">
+				<div class="unit dateAndNotes">
+					{block:Date}<a href="{Permalink}">{Month} {DayOfMonth}, {Year}</a>{/block:Date} 
+					{block:NoteCount}<span class="italic">with</span> <a href="{Permalink}">{NoteCountWithLabel}</a>{/block:NoteCount}
+				</div>
+				
+				<div class="unit lastUnit tags">
+					{block:HasTags}&nbsp; &nbsp; &nbsp; &nbsp; 
+				<span class="italic">tags:</span> {block:Tags}<a href="{TagURL}">{Tag}</a>. {/block:Tags}
+					{/block:HasTags}
+				</div>
+			</div><!--/metaData-->
+			
+			<div class="content">
+			{LinkOpenTag}<img src="{PhotoURL-HighRes}" style="max-width: 680px; margin: 0px auto;" alt="{PhotoAlt}" class="{TagsAsClasses}">{LinkCloseTag}
+			{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+			</div>
+			
+			{block:PostNotes}
+			<div class="notesWrap"><div class="notes">{PostNotes}</div></div>	
+			{/block:PostNotes}
+			
+			{block:PermalinkPage}
+				<!--{block:IfDisqusShortname}
+					{block:Permalink}
+					<div id="disqus_thread"></div>
+					<script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+					<noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">View the discussion thread.</a></noscript>
+					{/block:Permalink}
+				{/block:IfDisqusShortname}-->
+			{/block:PermalinkPage}  
+		</div>
+		<!--/photo-->
+		{/block:Photo}
+		
+		
+		{block:Photoset}
+		<!--photoset-->
+		<div class="post photoset">
+			<div class="metaData line">
+				<div class="unit dateAndNotes">
+					{block:Date}<a href="{Permalink}">{Month} {DayOfMonth}, {Year}</a>{/block:Date} 
+					{block:NoteCount}<span class="italic">with</span> <a href="{Permalink}">{NoteCountWithLabel}</a>{/block:NoteCount}
+				</div>
+				
+				<div class="unit lastUnit tags">
+					{block:HasTags}&nbsp; &nbsp; &nbsp; &nbsp; 
+				<span class="italic">tags:</span> {block:Tags}<a href="{TagURL}">{Tag}</a>. {/block:Tags}
+					{/block:HasTags}
+				</div>
+			</div><!--/metaData-->
+			
+			<div class="content">
+				<div class="mediaWrap">{Photoset-500}</a></div>
+			{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+			</div>
+			
+			{block:PostNotes}
+			<div class="notesWrap"><div class="notes">{PostNotes}</div></div>	
+			{/block:PostNotes}
+			
+			{block:PermalinkPage}
+				<!--{block:IfDisqusShortname}
+					{block:Permalink}
+					<div id="disqus_thread"></div>
+					<script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+					<noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">View the discussion thread.</a></noscript>
+					{/block:Permalink}
+				{/block:IfDisqusShortname}-->
+			{/block:PermalinkPage} 
+		</div>
+		<!--/photoset-->
+		{/block:Photoset}
+	
+	
+		{block:Quote}
+		<!--quote-->
+		<div class="post quote">
+			<div class="metaData line">
+				<div class="unit dateAndNotes">
+					{block:Date}<a href="{Permalink}">{Month} {DayOfMonth}, {Year}</a>{/block:Date} 
+					{block:NoteCount}<span class="italic">with</span> <a href="{Permalink}">{NoteCountWithLabel}</a>{/block:NoteCount}
+				</div>
+				
+				<div class="unit lastUnit tags">
+					{block:HasTags}&nbsp; &nbsp; &nbsp; &nbsp; 
+				<span class="italic">tags:</span> {block:Tags}<a href="{TagURL}">{Tag}</a>. {/block:Tags}
+					{/block:HasTags}
+				</div>
+			</div><!--/metaData-->
+			
+			<div class="content">
+			<p>{Quote}</p>
+			{block:Source}<p class="source">&mdash;{Source}</p>{/block:Source}
+			</div>
+			
+			{block:PostNotes}
+			<div class="notesWrap"><div class="notes">{PostNotes}</div></div>	
+			{/block:PostNotes}
+			
+			{block:PermalinkPage}
+				<!--{block:IfDisqusShortname}
+					{block:Permalink}
+					<div id="disqus_thread"></div>
+					<script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+					<noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">View the discussion thread.</a></noscript>
+					{/block:Permalink}
+				{/block:IfDisqusShortname}-->
+			{/block:PermalinkPage}  
+		</div>
+		<!--/quote-->
+		{/block:Quote}
+		
+		
+		{block:Text}
+		<!--text-->
+		<div class="post text">
+			<div class="metaData line">
+				<div class="unit dateAndNotes">
+					{block:Date}<a href="{Permalink}">{Month} {DayOfMonth}, {Year}</a>{/block:Date} 
+					{block:NoteCount}<span class="italic">with</span> <a href="{Permalink}">{NoteCountWithLabel}</a>{/block:NoteCount}
+				</div>
+				
+				<div class="unit lastUnit tags">
+					{block:HasTags}&nbsp; &nbsp; &nbsp; &nbsp; 
+				<span class="italic">tags:</span> {block:Tags}<a href="{TagURL}">{Tag}</a>. {/block:Tags}
+					{/block:HasTags}
+				</div>
+			</div><!--/metaData-->
+			
+			<div class="content">
+			{block:Title}<h3>{Title}</h3>{/block:Title}
+			{Body}
+			</div>
+			
+			{block:PostNotes}
+			<div class="notesWrap"><div class="notes">{PostNotes}</div></div>	
+			{/block:PostNotes}
+			
+			{block:PermalinkPage}
+				<!--{block:IfDisqusShortname}
+					{block:Permalink}
+					<div id="disqus_thread"></div>
+					<script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+					<noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">View the discussion thread.</a></noscript>
+					{/block:Permalink}
+				{/block:IfDisqusShortname}-->
+			{/block:PermalinkPage} 
+		</div>
+		<!--/text-->
+		{/block:Text}
+		
+		
+		{block:Video}
+		<!--video-->
+		<div class="post video">
+			<div class="metaData line">
+				<div class="unit dateAndNotes">
+					{block:Date}<a href="{Permalink}">{Month} {DayOfMonth}, {Year}</a>{/block:Date} 
+					{block:NoteCount}<span class="italic">with</span> <a href="{Permalink}">{NoteCountWithLabel}</a>{/block:NoteCount}
+				</div>
+				
+				<div class="unit lastUnit tags">
+					{block:HasTags}&nbsp; &nbsp; &nbsp; &nbsp; 
+				<span class="italic">tags:</span> {block:Tags}<a href="{TagURL}">{Tag}</a>. {/block:Tags}
+					{/block:HasTags}
+				</div>
+			</div><!--/metaData-->
+			
+			<div class="content">
+				<div class="mediaWrap">{Video-500}</div>
+			{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+			</div>
+			
+			{block:PostNotes}
+			<div class="notesWrap"><div class="notes">{PostNotes}</div></div>	
+			{/block:PostNotes}
+			
+			{block:PermalinkPage}
+				<!--{block:IfDisqusShortname}
+					{block:Permalink}
+					<div id="disqus_thread"></div>
+					<script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+					<noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">View the discussion thread.</a></noscript>
+					{/block:Permalink}
+				{/block:IfDisqusShortname}-->
+			{/block:PermalinkPage}  
+		</div>
+		<!--/video-->
+		{/block:Video}
+		{/block:Posts}	
+	</div><!--/body-->
+	
+	<div class="foot"><!--footer-->
+		<div class="postNav line">
+		{block:Pagination}
+			<div class="unit previous">{block:PreviousPage}<a href="{PreviousPage}">Newer posts</a>{/block:PreviousPage}&nbsp;</div> 
+			<div class="unit pageNum">Nº. {CurrentPage} <span class="italic">of</span>&nbsp; {TotalPages} </div>
+			<div class="unit next lastUnit">&nbsp;{block:NextPage}<a href="{NextPage}">Older posts</a>{/block:NextPage}</div>
+		{/block:Pagination}
+		
+		{block:PermalinkPagination} 
+			<div class="unit previous">{block:PreviousPost}<a href="{PreviousPost}">Previous post</a>{/block:PreviousPost}&nbsp;</div> 
+			<div class="unit pageNum">&nbsp;</div>
+			<div class="unit next lastUnit">&nbsp;{block:NextPost}<a href="{NextPost}">Next post</a>{/block:NextPost}</div>
+		{/block:PermalinkPagination} 
+		</div><!--/postNav-->
+		
+		
+		<div class="pageLinks">
+			{block:IfNotPageLinksOnTop}<p>
+				{block:HasPages}
+					{block:Pages}<a href="{URL}">{Label}</a>{/block:Pages}
+				{/block:HasPages}
+				
+				{block:AskEnabled}
+					<a href="/ask">Ask <span class="italic">a</span> Question</a>
+				{/block:AskEnabled} 
+				
+				{block:SubmissionsEnabled} 
+					<a href="/submit">{SubmitLabel}</a>
+				{/block:SubmissionsEnabled}  
+				
+				<a href="/archive">Archive</a>
+				<a href="{RSS}">RSS</a>
+				<a href="/mobile">Mobile</a>
+			</p>{/block:IfNotPageLinksOnTop}
+			
+			<p class="credit">
+				<a href="http://centennialtheme.tumblr.com">Centennial Theme</a> by <a href="http://www.onebyfourstudio.com">One by Four Studio</a>. Powered by <a href="http://www.tumblr.com">Tumblr</a>.
+			</p>
+		</div><!--/pageLinks-->
+		
+	</div><!--/footer-->
+</div><!--/page-->	
+
+{block:IfDisqusShortname}
+	<script type="text/javascript">
+	    //<![CDATA[
+	    (function() {
+	        var links = document.getElementsByTagName('a');
+	        var query = '?';
+	        for(var i = 0; i < links.length; i++) {
+	            if(links[i].href.indexOf('#disqus_thread') >= 0) {
+	                query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+	            }
+	        }
+	        document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
+	    })();
+	    //]]>
+	</script>
+{/block:IfDisqusShortname}
+</body>
+</html>

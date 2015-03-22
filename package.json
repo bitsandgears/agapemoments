@@ -1,0 +1,23 @@
+{
+  "name": "agape-moments",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-imagemin": "^0.9.3",
+    "grunt-contrib-jshint": "^0.11.0",
+    "grunt-contrib-nodeunit": "~0.4.1",
+    "grunt-contrib-uglify": "^0.7.0",
+    "grunt-contrib-watch": "^0.6.1"
+  },
+  "description": "The easiest way to get started with Foundation + Compass.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kars van abbema",
+  "license": "ISC",
+  "dependencies": {
+    "imagemin-optipng": "^4.2.0"
+  }
+}

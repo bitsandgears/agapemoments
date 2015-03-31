@@ -26,7 +26,7 @@ $(function() {
         return false;
       }
     } 
-  }); 
+  });   
 
 
   // Infinite scrolling
